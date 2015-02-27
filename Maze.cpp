@@ -135,6 +135,7 @@ bool Maze::traverse()
 
    Cell* start_cell = new Cell(1, 1);
    stack.push(start_cell);  //start from the top left corner
+   
 
    while(!stack.isEmpty())
    {

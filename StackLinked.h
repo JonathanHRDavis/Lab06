@@ -94,6 +94,7 @@ void StackLinked<T>::push(T* item)
 	
 	next->setNext(curr);
 	top = next;
+	sze++;
 
 
 
@@ -114,6 +115,7 @@ T* StackLinked<T>::pop()
       prev->setNext(NULL);
       delete prev;
 	  top = curr;
+	  sze--;
 
 
 
