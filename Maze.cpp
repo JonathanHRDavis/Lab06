@@ -42,14 +42,14 @@ Cell* Maze::processBackTrack(StackLinked<Cell>* stack)
    //DO THIS
    //you may need to back through several cells
 
-   Cell* top_cell = stack->peek();  
+   Cell* top_cell = stack->peek();
    //top_cell is NULL if the stack is empty
    //top_cell's direction is DEAD_END if you need to keep backtracking
 
    while (top_cell->getDir() == DEAD_END)  //need to back track
    {
       
-	
+
 	maze->setElement(top_cell->getRow(), top_cell->getCol(),BACKTRACK);
 	stack->pop();
 
@@ -62,9 +62,12 @@ Cell* Maze::processBackTrack(StackLinked<Cell>* stack)
 
 
 
-
       Sleep(75);      //slow down the maze traversal
       gui->update();  //update whenever the color of a cell has been changed
+	  
+	  if (top_cell == NULL)		return top_cell;
+
+	  
    }
 
    return top_cell;
@@ -135,7 +138,7 @@ bool Maze::traverse()
 
    Cell* start_cell = new Cell(1, 1);
    stack.push(start_cell);  //start from the top left corner
-   
+
 
    while(!stack.isEmpty())
    {
@@ -192,7 +195,7 @@ bool Maze::traverse()
    }
    else
    {
-      cout << "No solution." << endl;
+      cout << endl << "No solution." << endl;
    }
 
    return done;
